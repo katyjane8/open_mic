@@ -71,7 +71,17 @@ class UserTest < Minitest::Test
     assert_equal 2, josh.jokes.count
   end
 
-  def test_
+  def test_casey_is_new_user
+    casey = User.new("Casey")
 
+    assert_equal "Casey", casey.name
+  end
+
+  def test_casey_has_routine
+    casey = User.new("Casey")
+    casey.learn_routine('./jokes.csv')
+
+    assert_equal 100, casey.jokes.count
+  end 
 
 end
