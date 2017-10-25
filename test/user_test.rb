@@ -40,6 +40,7 @@ class UserTest < Minitest::Test
 
   def test_sal_can_tell_ali_a_joke_and_she_learns_it
     sal = User.new("Sal")
+    ali = User.new("Ali")
     joke = Joke.new({id: 1, question: "Why did the strawberry cross the road?", answer: "Because his mother was in a jam."})
     sal.tell(ali, joke)
 
