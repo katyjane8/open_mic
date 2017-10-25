@@ -31,6 +31,4 @@ class User
       @jokes << row
     end
   end
-
-
 end
