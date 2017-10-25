@@ -18,5 +18,11 @@ class User
     name.learn(joke)
   end
 
-  
+  def perform_routine_for(name)
+    jokes.map do |joke|
+      tell(name, joke)
+    end
+  end
+
+
 end
