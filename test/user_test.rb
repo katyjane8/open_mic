@@ -29,11 +29,24 @@ class UserTest < Minitest::Test
     assert_equal [], sal.jokes
   end
 
-  # > sal.jokes
-  # # => []
-  #
-  # > sal.learn(joke)
-  # > sal.jokes
-  # # => [#<Joke:0x007fc87b02c2e0 ...>]
+  def test_sal_can_learn_jokes
+    sal = User.new("Sal")
+    joke = Joke.new({id: 1, question: "Why did the strawberry cross the road?", answer: "Because his mother was in a jam."})
+    sal.learn(joke)
+
+    assert_instance_of Array, sal.jokes
+    assert_equal [joke], sal.jokes
+  end
+
+  def test_sal_can_tell_ali_a_joke_and_she_learns_it
+    sal = User.new("Sal")
+    joke = Joke.new({id: 1, question: "Why did the strawberry cross the road?", answer: "Because his mother was in a jam."})
+    sal.tell(ali, joke)
+
+    assert_instance_of Array, ali.jokes
+    assert_equal [joke], ali.jokes
+    assert_equal 1, ali.jokes.count
+  end
+
 
 end
